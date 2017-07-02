@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Header } from './components/index';
 import { DevTools } from './utils/index';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class App extends React.Component {
 	static propTypes = {
@@ -12,7 +13,10 @@ export default class App extends React.Component {
 		return (
 			<div>
 				<Header />
-				{this.props.children}
+				<MuiThemeProvider>
+					{ this.props.children }
+				</MuiThemeProvider>
+
 				{ process.env.NODE_ENV !== 'production' ? <DevTools /> : null}
 			</div>
 		)

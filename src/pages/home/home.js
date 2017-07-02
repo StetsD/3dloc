@@ -1,4 +1,9 @@
 import React from 'react';
+import {RaisedButton} from 'material-ui';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+
+injectTapEventPlugin();
 
 export default class HomePage extends React.Component {
 
@@ -7,7 +12,7 @@ export default class HomePage extends React.Component {
 	render(){
 		return (
 			<div>
-				<div className=""></div>
+				<RaisedButton label="lalla"/>
 			</div>
 		)
 	}

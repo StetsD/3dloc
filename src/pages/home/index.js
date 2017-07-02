@@ -1,2 +1,2 @@
-export Home from './home';
+export HomePage from './home';
 export HomeRoutes from './routes';
