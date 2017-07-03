@@ -35,7 +35,7 @@ module.exports = {
         modulesDirectories: ['node_modules', 'bower_components'],
         moduleTemplates: ['*', 'index'],
         extensions: ['', '.js'],
-        root: __dirname + '/src'
+        root: __dirname + '/src',
     },
     resolveLoader: {
         modulesDirectories: ['node_modules', 'bower_components'],

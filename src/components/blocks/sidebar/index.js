@@ -1,15 +1,32 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Dropdown } from 'semantic-ui-react';
+import $ from 'jquery';
+
 
 export default class Sidebar extends React.Component {
+    componentDidMount(){
+        $('.ui.sidebar').sidebar({
+            context: $('.ui.fluid.container')
+        }).sidebar('attach events', '.menu .item.seach-studio')
+    }
+
     render() {
         return (
             <div>
                 <div className="ui top attached demo menu">
-                    <Button className="item">
+                    <Button className="item seach-studio">
                         <i className="sidebar icon"></i>
                         Найти студию
                     </Button>
+                    <Dropdown className="item" placeholder="Выберите Страну" search selection
+                        options = {[{
+                            key: 'af',
+                            value: 'af',
+                            flag: 'af',
+                            text: 'Afganistan'
+                        }]}>
+
+                    </Dropdown>
                 </div>
                 <div className="ui bottom attached segment pushable">
                     <div className="ui inverted labeled icon left inline vertical sidebar menu">

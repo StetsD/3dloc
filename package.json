@@ -47,6 +47,7 @@
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
     "semantic-ui": "^2.2.10",
+    "semantic-ui-css": "^2.2.10",
     "semantic-ui-react": "^0.70.0"
   }
 }
