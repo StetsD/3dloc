@@ -21,6 +21,9 @@ module.exports = {
     },
     devtool: NODE_ENV == 'development' ? 'cheap-inline-module-source-map' : null,
     plugins: [
+		new webpack.ProvidePlugin({
+			$: 'jquery/dist/jquery.min'
+		}),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin('bundle.css'),
         new webpack.DefinePlugin({
