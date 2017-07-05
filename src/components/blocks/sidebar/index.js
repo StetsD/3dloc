@@ -1,62 +1,49 @@
-import React from 'react';
-import { Button, Dropdown } from 'semantic-ui-react';
-import $ from 'jquery';
+import React, { Component } from 'react';
+import { Button, Segment, Dropdown, Sidebar, Menu, Image, Icon, Header } from 'semantic-ui-react';
+import Filters from '../filters';
 
+export default class SidebarLeftUncover extends Component {
 
-export default class Sidebar extends React.Component {
-    componentDidMount(){
-        $('.ui.sidebar').sidebar({
-            context: $('.ui.fluid.container')
-        }).sidebar('attach events', '.menu .item.seach-studio')
+    constructor(props){
+        super(props);
+
+        this.toggleVisibility = this.toggleVisibility.bind(this);
     }
 
-    render() {
+    state = { visible: false }
+
+    toggleVisibility(){
+        this.setState({ visible: !this.state.visible });
+    }
+
+    render(){
+        const { visible } = this.state;
         return (
             <div>
-                <div className="ui top attached demo menu">
-                    <Button className="item seach-studio">
-                        <i className="sidebar icon"></i>
-                        Найти студию
-                    </Button>
-                    <Dropdown className="item" placeholder="Выберите Страну" search selection
-                        options = {[{
-                            key: 'af',
-                            value: 'af',
-                            flag: 'af',
-                            text: 'Afganistan'
-                        }]}>
-
-                    </Dropdown>
-                </div>
-                <div className="ui bottom attached segment pushable">
-                    <div className="ui inverted labeled icon left inline vertical sidebar menu">
-                        <a className="item">
-                            <i className="home icon"></i>
+                <Filters handleClickUser={this.toggleVisibility}/>
+                {/* <Button onClick={this.toggleVisibility}>Toggle</Button> */}
+                <Sidebar.Pushable as={Segment}>
+                    <Sidebar as={Menu} animation='uncover' width='thin' visible={visible} icon="labeled" vertical inverted>
+                        <Menu.Item name='home'>
+                            <Icon name="home"/>
                             Home
-                        </a>
-                        <a className="item">
-                            <i className="block layout icon"></i>
-                            Topics
-                        </a>
-                        <a className="item">
-                            <i className="smile icon"></i>
-                            Friends
-                        </a>
-                        <a className="item">
-                            <i className="calendar icon"></i>
-                            History
-                        </a>
-                    </div>
-                    <div className="pusher" >
-                        <div className="ui basic segment">
-                            <h3 className="ui header">Application Content</h3>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
+                        </Menu.Item>
+                        <Menu.Item name="gamepad">
+                            <Icon name='gamepad'/>
+                            Games
+                        </Menu.Item>
+                        <Menu.Item name='camera'>
+                            <Icon name='camera'/>
+                            Channels
+                        </Menu.Item>
+                    </Sidebar>
+                    <Sidebar.Pusher>
+                        <Segment basic>
+                            <Header as='h3'>Application Content</Header>
+                            <Image src='/assets/images/wireframe/paragraph.png'/>
+                        </Segment>
+                    </Sidebar.Pusher>
+                </Sidebar.Pushable>
             </div>
         )
     }

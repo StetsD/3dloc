@@ -1,0 +1,57 @@
+import React, { Component } from 'react';
+import { Button, Dropdown, Grid } from 'semantic-ui-react';
+import countries from '../../../data/filters/countries';
+import city from '../../../data/filters/city';
+
+
+export default class Filters extends Component {
+
+	constructor(props){
+		super(props);
+
+		this.handleClickUser = this.handleClickUser.bind(this);
+	}
+
+	handleClickUser(){
+		this.props.handleClickUser();
+	}
+
+    render(){
+        return (
+			<Grid doubling  stackable verticalAlign="middle" >
+				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
+					<Button fluid item seach-studio onClick={this.handleClickUser}>
+				        <i className="user icon"></i>
+				        Борис Иваныч
+				    </Button>
+				</Grid.Column>
+				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
+					<Dropdown fluid item placeholder="Страна" search selection
+				        options = {countries}>
+				    </Dropdown>
+				</Grid.Column>
+				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
+					<Dropdown fluid item placeholder="Город" search selection
+				        options = {city}>
+				    </Dropdown>
+				</Grid.Column>
+				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
+					<Dropdown fluid item placeholder="Стоимость" search selection
+				        options = {city}>
+				    </Dropdown>
+				</Grid.Column>
+				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
+					<Dropdown fluid item placeholder="Рейтинг" search selection
+				        options = {city}>
+				    </Dropdown>
+				</Grid.Column>
+				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
+					<Dropdown fluid item placeholder="Специализация" search selection
+				        options = {city}>
+				    </Dropdown>
+				</Grid.Column>
+			</Grid>
+
+        )
+    }
+}
