@@ -1,0 +1,19 @@
+.header{
+	padding: 20px;
+
+	&__inner{
+		display: flex;
+		align-items: center;
+	}
+
+	&__link{
+		margin: 0 10px;
+	}
+
+	&__link_logo{
+		width: 30px;
+		& img{
+			width: 100%;
+		}
+	}
+}

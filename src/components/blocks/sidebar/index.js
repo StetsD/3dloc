@@ -20,9 +20,8 @@ export default class SidebarLeftUncover extends Component {
         const { visible } = this.state;
         return (
             <div>
-                <Filters handleClickUser={this.toggleVisibility}/>
-                {/* <Button onClick={this.toggleVisibility}>Toggle</Button> */}
                 <Sidebar.Pushable as={Segment}>
+					<Filters handleClickUser={this.toggleVisibility}/>
                     <Sidebar as={Menu} animation='uncover' width='thin' visible={visible} icon="labeled" vertical inverted>
                         <Menu.Item name='home'>
                             <Icon name="home"/>
@@ -38,10 +37,7 @@ export default class SidebarLeftUncover extends Component {
                         </Menu.Item>
                     </Sidebar>
                     <Sidebar.Pusher>
-                        <Segment basic>
-                            <Header as='h3'>Application Content</Header>
-                            <Image src='/assets/images/wireframe/paragraph.png'/>
-                        </Segment>
+                        {this.props.children}
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
             </div>

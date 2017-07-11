@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Dropdown, Grid } from 'semantic-ui-react';
 import countries from '../../../data/filters/countries';
 import city from '../../../data/filters/city';
+import style from './style.scss';
 
 
 export default class Filters extends Component {
@@ -18,9 +19,9 @@ export default class Filters extends Component {
 
     render(){
         return (
-			<Grid doubling  stackable verticalAlign="middle" >
+			<Grid className="filters" doubling stackable verticalAlign="middle" >
 				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
-					<Button fluid item seach-studio onClick={this.handleClickUser}>
+					<Button fluid  onClick={this.handleClickUser}>
 				        <i className="user icon"></i>
 				        Борис Иваныч
 				    </Button>

@@ -14,11 +14,9 @@ export default class App extends React.Component {
 
 	render(){
 		return (
-			<Container fluid >
-				<Sidebar />
-
-				{ this.props.children }
-
+			<Container fluid className="prime">
+				<Header />
+				<Sidebar children={ this.props.children }/>
 				{ process.env.NODE_ENV !== 'production' ? <DevTools /> : null}
 			</Container>
 		)
