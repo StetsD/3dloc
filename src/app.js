@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Header, Sidebar } from './components/blocks/index';
+import { Header, Sidebar, Footer } from './components/blocks/index';
 import { DevTools } from './utils/index';
 import { Container } from 'semantic-ui-react';
 
@@ -17,6 +17,7 @@ export default class App extends React.Component {
 			<Container fluid className="prime">
 				<Header />
 				<Sidebar children={ this.props.children }/>
+				<Footer/>
 				{ process.env.NODE_ENV !== 'production' ? <DevTools /> : null}
 			</Container>
 		)
