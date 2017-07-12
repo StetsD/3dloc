@@ -32,7 +32,6 @@ export default class SidebarLeftUncover extends Component {
         return (
             <div>
                 <Sidebar.Pushable as={Segment}>
-					{/* <Filters handleClickUser={this.toggleVisibility}/> */}
                     <Sidebar as={Menu} animation='uncover' width='thin' visible={visible} icon="labeled" vertical inverted>
                         <Menu.Item name='home'>
                             <Icon name="home"/>
