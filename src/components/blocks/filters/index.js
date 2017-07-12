@@ -10,10 +10,10 @@ export default class Filters extends Component {
 	constructor(props){
 		super(props);
 
-		this.handleClickUser = this.handleClickUser.bind(this);
+		this._handleClickUser = this._handleClickUser.bind(this);
 	}
 
-	handleClickUser(){
+	_handleClickUser(){
 		this.props.handleClickUser();
 	}
 
@@ -21,7 +21,7 @@ export default class Filters extends Component {
         return (
 			<Grid className="filters" doubling stackable verticalAlign="middle" >
 				<Grid.Column largeScreen="2" widescreen="2" tablet="4">
-					<Button fluid  onClick={this.handleClickUser}>
+					<Button fluid  onClick={this._handleClickUser}>
 				        <i className="user icon"></i>
 				        Борис Иваныч
 				    </Button>

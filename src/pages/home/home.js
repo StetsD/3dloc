@@ -1,28 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Filters from '../../components/blocks/filters';
+import Map from '../../components/blocks/map';
+import style from './style.scss';
 
-export default class HomePage extends React.Component {
+var map = new Map();
 
+export default class HomePage extends Component {
 	constructor(props){
 		super(props);
-
-		this.toggleVisibility = this.toggleVisibility.bind(this);
 	}
 
-	toggleVisibility(){
-        this.setState({ visible: !this.state.visible });
-    }
+	componentDidMount(){
 
+		map.init().geolocation();
+		console.log(map)
+	}
 
 	static path = '/';
-	state = {visible: false}
 
 	render(){
-
 		return (
 			<div>
-				<Filters handleClickUser={this.toggleVisibility}/>
-				<header>LALALALAL</header>
+				<Filters handleClickUser={this.props.handleClickUser}/>
+				<div id="map" className="g-map"></div>
 			</div>
 		)
 	}

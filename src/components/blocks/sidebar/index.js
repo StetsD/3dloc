@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Segment, Dropdown, Sidebar, Menu, Image, Icon, Header } from 'semantic-ui-react';
 import Filters from '../filters';
+import HomePage from '../../../pages/home/home';
 
 export default class SidebarLeftUncover extends Component {
 
@@ -18,10 +19,20 @@ export default class SidebarLeftUncover extends Component {
 
     render(){
         const { visible } = this.state;
+        let richChildren = React.Children.map(this.props.children, child => {
+            if(child.type == HomePage){
+                return React.cloneElement(child, {
+                    handleClickUser: this.toggleVisibility
+                });
+            }else{
+                return child;
+            }
+        });
+
         return (
             <div>
                 <Sidebar.Pushable as={Segment}>
-					<Filters handleClickUser={this.toggleVisibility}/>
+					{/* <Filters handleClickUser={this.toggleVisibility}/> */}
                     <Sidebar as={Menu} animation='uncover' width='thin' visible={visible} icon="labeled" vertical inverted>
                         <Menu.Item name='home'>
                             <Icon name="home"/>
@@ -37,7 +48,7 @@ export default class SidebarLeftUncover extends Component {
                         </Menu.Item>
                     </Sidebar>
                     <Sidebar.Pusher>
-                        {this.props.children}
+                        {richChildren}
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
             </div>
