@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Filters, ItemStudio} from '../../components/blocks';
 import Map from '../../components/blocks/map';
-import {Item, Grid} from 'semantic-ui-react';
+import {Item, Grid, Container, Icon} from 'semantic-ui-react';
 import style from './style.scss';
 
 import studioImg1 from '../../temp/img/studio-item-1.png';
@@ -25,17 +25,20 @@ export default class HomePage extends Component {
 	render(){
 		let x = 0;
 		return (
-			<section>
+			<section className="home-page">
 				<Filters handleClickUser={this.props.handleClickUser}/>
-				<div id="map" className="g-map"></div>
+				<div id="map" className="home-page__g-map"></div>
 				<Grid doubling stackable>
-					<Grid.Column largeScreen="16" widescreen="12" tablet="16">
-						<Item.Group divided>
-							<ItemStudio img={studioImg1}/>
-							<ItemStudio img={studioImg2}/>
-							<ItemStudio img={studioImg3}/>
-							<ItemStudio img={studioImg4}/>
-						</Item.Group>
+					<Grid.Column largeScreen="16" widescreen="16" tablet="16">
+						<Container className='home-page__studio-wrapper'>
+							<Item.Group divided>
+								<ItemStudio img={studioImg1}/>
+								<ItemStudio img={studioImg2}/>
+								<ItemStudio img={studioImg3}/>
+								<ItemStudio img={studioImg4}/>
+							</Item.Group>
+							<Icon className="home-page__refresh" name='refresh' size='huge'/>
+						</Container>
 					</Grid.Column>
 				</Grid>
 
