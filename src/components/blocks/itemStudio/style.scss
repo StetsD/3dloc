@@ -1,0 +1,37 @@
+@import '../../../commonCss/common';
+
+.prime .studio-item{
+
+    &__img{
+        cursor: pointer;
+        & img{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+
+    &__title{
+        cursor: pointer;
+    }
+
+    &__desc{
+
+    }
+
+    &__location{
+        & p, & div{
+            font-size: 12px;
+        }
+    }
+
+    &__write{
+        margin: 15px 0 10px;
+    }
+
+    &__tag{
+        cursor: pointer;
+    }
+
+}
