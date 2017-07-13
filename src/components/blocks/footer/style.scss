@@ -1,7 +1,19 @@
+@import "../../../commonCss/common";
+
 .prime .footer{
 
     &__copy{
         font-size: 12px;
     }
+
+	&__networks{
+		display: flex;
+		width: 94%;
+		justify-content: center;
+		@media #{$mobile}{
+			display: inline-block;
+			width: inherit;
+		}
+	}
 
 }

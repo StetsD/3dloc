@@ -26,7 +26,7 @@ export default class Footer extends Component{
 						</Header>
 					</a>
 				</Segment>
-				<Segment basic floated="right">
+				<Segment className="footer__networks" basic floated="right">
 					<a href="#"><Button color='facebook' icon='facebook' /></a>
 					<a href="#"><Button color='twitter' icon='twitter' /></a>
 					<a href="#"><Button color='google plus' icon='google plus' /></a>

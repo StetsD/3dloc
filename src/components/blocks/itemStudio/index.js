@@ -20,7 +20,7 @@ export default class ItemStudio extends Component {
                     <Item.Description className='studio-item__location'>
                         <p>г. Санкт-Петербург, ул.Морской Пехоты 23</p>
                         <div>
-                            Рейтинг <Rating icon='star' defaultRating={3} maxRating={5}/>
+                            Рейтинг <Rating disabled icon='star' defaultRating={3} maxRating={5}/>
                         </div>
                     </Item.Description>
 
