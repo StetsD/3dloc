@@ -6,7 +6,7 @@ import { HomePage, HomeRoutes } from './pages/home/index';
 import { AboutRoutes } from './pages/about/index';
 import { BlogRoutes } from './pages/blog/index';
 import { page404Routes } from './pages/404/index';
-
+import { StudioRoutes } from './pages/studio/index';
 
 export default (
     <Route component={ App } path={ App.path } >
@@ -14,6 +14,9 @@ export default (
         { HomeRoutes }
 		{ AboutRoutes }
 		{ BlogRoutes }
+		{ StudioRoutes }
+
         { page404Routes }
+
     </Route>
 );
