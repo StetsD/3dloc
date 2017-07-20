@@ -1,7 +1,9 @@
 import {GET_STUDIOS} from './actions';
+import Studios from '../../data/studios';
 
 const initialState = {
-    isLoading: true
+    isLoading: true,
+    studios: Studios
 }
 
 function homeReducer(state = initialState, action){

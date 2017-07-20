@@ -13,15 +13,11 @@ class HomePage extends Component {
 	constructor(props){
 		super(props);
 		bindAll(this, ['getStudios']);
-		this.props.dispatch(getStudios());
-	}
-
-	componentWillMount(){
-
 	}
 
 	componentDidMount(){
 		map.init().geolocation();
+
 	}
 
 	getStudios(){
@@ -36,7 +32,7 @@ class HomePage extends Component {
 
 	render(){
 		let x = 0;
-		console.log(this.props)
+		console.log('render', this.props)
 		let {studios} = this.props.home;
 		return (
 			<section className="home-page">

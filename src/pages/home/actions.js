@@ -1,4 +1,4 @@
-import studios from '../../data/studios';
+import Studios from '../../data/studios';
 
 export const GET_STUDIOS = 'GET_STUDIOS';
 
