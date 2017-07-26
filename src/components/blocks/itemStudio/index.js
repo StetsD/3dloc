@@ -8,15 +8,21 @@ export default class ItemStudio extends Component {
         super(props);
     }
 
+	getLink(){
+		return {
+			pathname: `/studios/${this.props.id}`
+		}
+	}
+
     render() {
         return (
             <Item className='studio-item'>
                 <Item.Image verticalAlign='middle' className='studio-item__img' src={this.props.img}/>
                 <Item.Content>
-                    <Link to="/studios/3">
+                    <Link to={this.getLink()}>
                         <Item.Header className='studio-item__title'>{this.props.title}</Item.Header>
                     </Link>
-                    <Link to="/studios/3">
+                    <Link to={this.getLink()}>
                         <Item.Meta className='studio-item__desc'>
                             <span >{this.props.description}</span>
                         </Item.Meta>

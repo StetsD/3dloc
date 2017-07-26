@@ -16,8 +16,7 @@ class HomePage extends Component {
 	}
 
 	componentDidMount(){
-		map.init().geolocation();
-
+		map.init().geolocation(); 
 	}
 
 	getStudios(){
@@ -32,7 +31,6 @@ class HomePage extends Component {
 
 	render(){
 		let x = 0;
-		console.log('render', this.props)
 		let {studios} = this.props.home;
 		return (
 			<section className="home-page">
