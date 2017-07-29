@@ -1,26 +1,17 @@
 import React, {Component, PropTypes} from 'react';
 import {Filters, ItemStudio} from '../../components/blocks';
-import Map from '../../components/blocks/map';
+import map from '../../components/blocks/map';
 import {Item, Grid, Container, Icon} from 'semantic-ui-react';
 import style from './style.scss';
 import {connect} from 'react-redux';
-import {getStudios} from './actions';
+import {getStudios, toggleMenu} from './actions';
 import {bindAll} from 'lodash';
 
-var map = new Map();
 
 class HomePage extends Component {
 	constructor(props){
 		super(props);
-		bindAll(this, ['getStudios']);
-	}
-
-	componentDidMount(){
-		map.init().geolocation(); 
-	}
-
-	getStudios(){
-
+		bindAll(this, ['handleClickUser']);
 	}
 
 	static path = '/';
@@ -29,12 +20,30 @@ class HomePage extends Component {
 		dispatch: PropTypes.func.isRequired
 	}
 
+	componentDidMount(){
+		if(window.initMap){
+			window.initMap().geolocation();
+		}else{
+			map.init().geolocation();
+		}
+	}
+
+	componentDidUpdate(){
+
+	}
+
+	handleClickUser(){
+		this.props.dispatch(toggleMenu(this.props.app.enableSidebar));
+	}
+
+
 	render(){
 		let x = 0;
 		let {studios} = this.props.home;
+
 		return (
 			<section className="home-page">
-				<Filters handleClickUser={this.props.handleClickUser}/>
+				<Filters enableSidebar={this.props.enableSidebar}/>
 				<div id="map" className="home-page__g-map"></div>
 				<Grid doubling stackable>
 					<Grid.Column largeScreen="16" widescreen="16" tablet="16">
@@ -54,7 +63,8 @@ class HomePage extends Component {
 
 function mapStateToProps(state){
 	return {
-		home: state.home
+		home: state.home,
+		app: state.app
 	}
 }
 
