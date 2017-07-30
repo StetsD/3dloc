@@ -20,12 +20,6 @@ export default class SidebarLeftUncover extends Component {
         this.setState({ visible: !this.state.visible });
     }
 
-	componentDidMount(){
-		// $(window).on('keyup', e => {
-		// 	e.keyCode == 27 && this.state.visible ? this.toggleVisibility() : false;
-		// });
-	}
-
     render(){
         const { sidebarVisibility } = this.props;
         let richChildren = React.Children.map(this.props.children, child => {
@@ -37,8 +31,6 @@ export default class SidebarLeftUncover extends Component {
                 return child;
             }
         });
-        // let visibleSidebar = this.props.enableSidebar ? visible : this.props.enableSidebar
-
 
         return (
             <div>

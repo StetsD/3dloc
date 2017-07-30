@@ -25,6 +25,13 @@ class App extends React.Component {
 	};
 	static path = '/';
 
+	componentDidMount(){
+
+		$(window).on('keyup', e => {
+			e.keyCode == 27 && this.props.app.enableSidebar ? this.toggleMenuHandler() : false;
+		});
+	}
+
 	toggleMenuHandler(){
 		this.props.dispatch(toggleMenu(this.props.app.enableSidebar));
 	}
