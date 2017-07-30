@@ -1,4 +1,4 @@
-export default class Map{
+class Map{
 	constructor(){
 
     }
@@ -12,10 +12,10 @@ export default class Map{
                 };
                 this.map.setCenter(pos);
             }, ()=>{
-                console.log('blocked client')
+                console.log('gMap blocked client')
             });
         }else{
-            console.log('blocked client')
+            console.log('gMap blocked client')
         }
 
         return this;
@@ -23,12 +23,20 @@ export default class Map{
 
     init(){
         window.initMap = () => {
-            this.map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 10,
-				scrollwheel: false
-            });
+            let mapElem = document.getElementById('map');
+            if(mapElem){
+                this.map = new google.maps.Map(mapElem, {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 10,
+    				scrollwheel: false
+                });
+            }
+            return this;
         }
         return this;
     }
 }
+
+let map = new Map();
+
+export default map;

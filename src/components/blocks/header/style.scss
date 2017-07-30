@@ -8,6 +8,9 @@
 
 	&__link{
 		margin: 0 10px;
+		&.active{
+			color: #de321d;
+		}
 	}
 
 	&__link_logo{

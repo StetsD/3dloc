@@ -1,0 +1,22 @@
+.prime .my-studio-page{
+
+	&__form{
+		margin: 20px 0 0;
+	}
+
+	&__main-banner{
+		overflow: hidden;
+		height: 250px;
+		position: relative;
+		margin: 20px 0 20px;
+	}
+
+	&__desc{
+		height: 300px;
+		resize: none;
+	}
+
+	&__tags{
+		margin: 0 0 15px;
+	}
+}

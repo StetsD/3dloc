@@ -9,9 +9,9 @@ const HeaderBlock = () => {
         <header className="header">
 			<div className="header__inner">
 				<Link to="/" className="header__link header__link_logo"><img src={logo}/></Link>
-				<Link to="/" className="header__link">Главная</Link>
-				<Link to="/about" className="header__link">О проекте</Link>
-				<Link to="/blog" className="header__link">Блог</Link>
+				<Link to="/" activeClassName="active" onlyActiveOnIndex={true} className="header__link">Главная</Link>
+				<Link to="/about" activeClassName="active" className="header__link">О проекте</Link>
+				<Link to="/blog" activeClassName="active" className="header__link">Блог</Link>
 			</div>
         </header>
     )

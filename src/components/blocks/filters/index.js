@@ -14,7 +14,7 @@ export default class Filters extends Component {
 	}
 
 	_handleClickUser(){
-		this.props.handleClickUser();
+		this.props.enableSidebar();
 	}
 
     render(){
