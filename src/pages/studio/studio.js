@@ -19,14 +19,13 @@ class Studio extends Component{
 	}
 
     render(){
-		const {address, description, id, img, rating, tags, title} = this.getStudioInfo(this.props.location.pathname);
+		const {description, id, img, rating, tags, title} = this.getStudioInfo(this.props.location.pathname);
         return(
             <Container className='studio-page'>
                 <Header>{title} - {id}</Header>
 				<p>{description}</p>
 				<p>{img}</p>
 				<p>{tags}</p>
-				<p>{address}</p>
             </Container>
         )
     }

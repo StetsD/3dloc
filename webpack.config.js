@@ -11,7 +11,7 @@ module.exports = {
         './src/index.js'
     ],
     output: {
-        publicPath: 'http://localhost:3030/',
+        publicPath: '/',
         path: __dirname + '/public',
         filename: 'bundle.js'
     },
@@ -98,7 +98,6 @@ module.exports = {
 
 
 if (NODE_ENV == 'production') {
-    console.log('WTF');
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: {
