@@ -6,12 +6,12 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
     entry: [
-        'webpack-dev-server/client?http://localhost:3000',
+        'webpack-dev-server/client?http://localhost:3030',
         'webpack/hot/dev-server',
         './src/index.js'
     ],
     output: {
-        publicPath: 'http://localhost:3000/',
+        publicPath: 'http://localhost:3030/',
         path: __dirname + '/public',
         filename: 'bundle.js'
     },
@@ -44,7 +44,7 @@ module.exports = {
     },
     devServer: {
         host: 'localhost',
-        port: 3000,
+        port: 3030,
         contentBase: __dirname + '/public',
         inline: true,
         hot: true,
