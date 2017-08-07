@@ -8,13 +8,14 @@ function setConnection(){
 }
 
 function getStudio(id){
-    return Studio.find();
+    return Studio.find({id: id});
 }
 
 function createStudio(data){
     const studio = new Studio({
+		id: data.id,
         title: data.title,
-    	desc: data.desc,
+    	description: data.description,
     	phone: data.phone,
     	address: data.address,
     	email: data.email,

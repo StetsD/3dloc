@@ -8,19 +8,25 @@ db.setConnection();
 
 const app = express();
 
-app.use('/:studios/:id', express.static(rootPath + '/'))
-app.use('/', express.static(rootPath + '/'))
+app.use('*', express.static(rootPath + '/'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('*', (req, res)=> {
+
+app.get('/', (req, res)=> {
 	res.sendFile(rootPath + '/index.html');
 })
 
-
-app.get('/studios', (req, res) => {
-	db.getStudio().then(data => res.send(data));
+// app.use('/studios/:id', express.static(rootPath + '/'));
+app.get('/studios/1', (req, res) => {
+	console.log(req.headers.connection);
+	if(req.headers.connection = 'keep-alive'){
+		res.sendFile(rootPath + '/index.html');
+	}else{
+		db.getStudio(req.query.id).then(data => res.send(data));
+	}
 });
+
 
 app.post('/studios', (req, res) => {
 	db.createStudio(req.body).then(data => res.send(data));
@@ -31,7 +37,9 @@ app.delete('/studios/:id', (req, res) => {
 });
 
 
-
+app.get('*', (req, res)=> {
+	res.sendFile(rootPath + '/index.html');
+})
 
 const server = app.listen(config.PORT, () => {
 	console.log(`Server is running on port ${config.PORT}`);

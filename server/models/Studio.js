@@ -3,8 +3,9 @@ let mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const StudioSchema = new Schema({
+	id: {type: Number},
 	title: {type: String},
-	desc: {type: String},
+	description: {type: String},
 	phone: {type: String},
 	address: {type: String},
 	email: {type: String},
