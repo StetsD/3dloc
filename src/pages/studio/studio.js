@@ -9,33 +9,54 @@ import {connect} from 'react-redux';
 class Studio extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            id: '',
+        	title: '',
+        	description: '',
+        	phone: '',
+        	address: '',
+        	email: '',
+        	logo: '',
+        	rating: '',
+        	tags: '',
+        	messages: '',
+        	orders: ''
+        }
     }
 
     static path = '/studios/:id'
 
 	getStudioInfo(location){
-		let id = +location.replace(/\/studios\//g, '');
-		
-		axios.get(`/studios/${1}/?id=1`)
-		.then((data)=>{
-			console.log(data);
-		})
-
-		// return data[findIndex(data, {id})];
+        let id = +location.replace(/\/studios\//g, '').replace(/\//g, '');
+        let studio;
+        axios({
+            method: 'get',
+            url: `/studios/${id}/?id=${id}`,
+            headers: {'X-Requested-With': 'XMLHttpRequest'},
+            responseType: 'json'
+        }).then((data)=>{
+            studio = data.data[0];
+            this.setState(data.data[0]);
+        });
 	}
 
+    componentDidMount(){
+        this.getStudioInfo(this.props.location.pathname)
+    }
+
     render(){
-		this.getStudioInfo(this.props.location.pathname);
+        // console.log()
 		// const {description, id, img, rating, tags, title} = this.getStudioInfo(this.props.location.pathname);
+
         return(
-			<div>TEST</div>
-            // <Container className='studio-page'>
-                // <Header>{title} - {id}</Header>
-				// <p>{description}</p>
-				// <p>{img}</p>
-				// <p>{tags}</p>
-            // </Container>
+            <Container className='studio-page'>
+                <Header>{this.state.title} - {this.state.id}</Header>
+                <p>{this.state.description}</p>
+                <img src={this.state.logo}/>
+                <p>{this.state.tags}</p>
+            </Container>
         )
+
     }
 }
 

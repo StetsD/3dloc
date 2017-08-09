@@ -10,7 +10,7 @@ import {bindAll} from 'lodash';
 window.$ = window.jQuery = require('jquery')
 require('semantic-ui/dist/semantic.min')
 
-location.pathname !== '/' ? map.init() : null;
+location.pathname !== '/' ? map.init() : null; 
 
 
 class App extends React.Component {
