@@ -13,7 +13,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res)=> {
-	res.sendFile(indexHTML);
+	if(req.xhr){
+		db.getStudio().then(data => res.send(data));
+	}else{
+		res.sendFile(indexHTML);
+	}
 })
 
 
@@ -26,21 +30,20 @@ app.get('/studios/:id', (req, res) => {
 });
 
 app.use('/', express.static(rootPath));
-app.use('/studios/:id', express.static(rootPath));
+app.use('/:studios/:id', express.static(rootPath));
 
 
+app.post('/studios', (req, res) => {
+	db.createStudio(req.body).then(data => res.send(data));
+});
 
+app.delete('/studios/:id', (req, res) => {
+	db.deleteStudio().then(req.param.id).then(data => send(data));
+});
 
-
-
-
-// app.post('/studios', (req, res) => {
-// 	db.createStudio(req.body).then(data => res.send(data));
-// });
-//
-// app.delete('/studios/:id', (req, res) => {
-// 	db.deleteStudio().then(req.param.id).then(data => send(data));
-// });
+app.get('*', (req, res) => {
+	res.sendFile(indexHTML);
+});
 
 
 const server = app.listen(config.PORT, () => {

@@ -8,7 +8,12 @@ function setConnection(){
 }
 
 function getStudio(id){
-    return Studio.find({id: id});
+	if(id){
+		return Studio.find({id: id});
+	}else{
+		return Studio.find();
+	}
+
 }
 
 function createStudio(data){

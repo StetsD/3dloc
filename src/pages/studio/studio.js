@@ -54,6 +54,11 @@ class Studio extends Component{
                 <p>{this.state.description}</p>
                 <img src={this.state.logo}/>
                 <p>{this.state.tags}</p>
+                <p>{this.state.address}</p>
+                <p>{this.state.email}</p>
+                <p>{this.state.phone}</p>
+                <p>{this.state.rating}</p>
+                
             </Container>
         )
 
