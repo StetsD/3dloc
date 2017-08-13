@@ -1,3 +1,68 @@
 .studio-page{
-	
+
+    .studio-page__main-banner{
+		overflow: hidden;
+		height: 350px;
+		position: relative;
+		margin: 20px 0 20px;
+	}
+
+	.studio-page__info{
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.7);
+		width: 45%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		padding: 15px;
+		color: #ffffff;
+		& h2{
+			font-size: 14px;
+		}
+    }
+
+	.studio-page__inner-info{
+		display: flex;
+		align-items: center;
+	}
+
+	.studio-page__title{
+		margin: 0;
+		color: #ffffff;
+	}
+
+	.studio-page__logo{
+		width: 150px;
+	}
+
+	.studio-page__tags{
+
+	}
+
+	.studio-page__adress{
+	    margin: 20px 0 0;
+	}
+
+	.studio-page__email{
+		margin: 8px 0 0;
+	}
+
+	.studio-page__phone{
+		margin: 8px 0 0;
+	}
+
+	.studio-page__rating{
+		margin: 8px 0 0;
+	}
+
+	&__gallery{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		& img{
+			width: 200px;
+			cursor: pointer;
+		}
+	}
+
 }
