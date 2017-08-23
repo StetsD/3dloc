@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Header, Sidebar, Footer } from './components/blocks/index';
+import { Header, Sidebar, Footer, ModalLogin} from './components/blocks/index';
 import { DevTools } from './utils/index';
 import { Container } from 'semantic-ui-react';
 import {connect, dispatch} from 'react-redux';
@@ -7,10 +7,11 @@ import map from './components/blocks/map';
 import {toggleMenu} from './appState/action';
 import {bindAll} from 'lodash';
 
+
 window.$ = window.jQuery = require('jquery')
 require('semantic-ui/dist/semantic.min')
 
-location.pathname !== '/' ? map.init() : null; 
+location.pathname !== '/' ? map.init() : null;
 
 
 class App extends React.Component {
@@ -37,10 +38,10 @@ class App extends React.Component {
 	}
 
 	render(){
-
 		let {enableSidebar} = this.props.app;
 		return (
 			<Container fluid className="prime">
+				<ModalLogin/>
 				<Header />
 				<Sidebar children={ this.props.children } enableSidebar={this.toggleMenuHandler} sidebarVisibility={enableSidebar}/>
 				<Footer/>

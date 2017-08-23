@@ -13,6 +13,10 @@ const HeaderBlock = () => {
 				<Link to="/about" activeClassName="active" className="header__link">О проекте</Link>
 				<Link to="/blog" activeClassName="active" className="header__link">Блог</Link>
 			</div>
+			<div className="header__auth">
+				<Link to="/login" className="header__link">Войти</Link>
+				<Link to="/registration" className="header__link">Зарегистрироваться</Link>
+			</div>
         </header>
     )
 }
