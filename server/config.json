@@ -1,0 +1,9 @@
+{
+	"api": "http://localhost:3000",
+	"PORT": "3000",
+	"db": {
+		"name": "3dLoc",
+		"host": "localhost",
+		"port": 27017
+	}
+}
