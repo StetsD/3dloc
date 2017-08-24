@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Header, Sidebar, Footer, ModalLogin} from './components/blocks/index';
+import { Header, Sidebar, Footer, ModalLogin, ModalRegistration} from './components/blocks/index';
 import { DevTools } from './utils/index';
 import { Container } from 'semantic-ui-react';
 import {connect, dispatch} from 'react-redux';
@@ -38,10 +38,11 @@ class App extends React.Component {
 	}
 
 	render(){
-		let {enableSidebar} = this.props.app;
+		let {enableSidebar, location} = this.props.app;
 		return (
 			<Container fluid className="prime">
-				<ModalLogin/>
+				<ModalLogin enable={location == '/login' ? true : false}/>
+				<ModalRegistration enable={location == '/registration' ? true : false} />
 				<Header />
 				<Sidebar children={ this.props.children } enableSidebar={this.toggleMenuHandler} sidebarVisibility={enableSidebar}/>
 				<Footer/>

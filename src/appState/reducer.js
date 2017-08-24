@@ -2,7 +2,8 @@ import {LOCATION_CHANGE, INIT} from 'react-router-redux';
 import {TOGGLE_MENU} from './action';
 
 const initialState = {
-	enableSidebar: false
+	enableSidebar: false,
+	location: '/'
 }
 
 let appReducer = (state = initialState, action) => {
@@ -10,7 +11,7 @@ let appReducer = (state = initialState, action) => {
 		case INIT:
 			return {...state}
 		case LOCATION_CHANGE:
-			return {...state, enableSidebar: false}
+			return {...state, enableSidebar: false, location: window.location.pathname}
 		case TOGGLE_MENU:
 			return {...state, enableSidebar: !action.payload}
 		default:

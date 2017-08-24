@@ -9,7 +9,7 @@ export default class modalLogin extends Component {
 
     render(){
         return(
-            <Modal size="small" closeIcon={true} open={true}>
+            <Modal size="small" closeIcon={true} dimmer={this.props.enable} open={this.props.enable}>
                 <Modal.Header>Аторизация</Modal.Header>
                 <Modal.Content>
                     <Modal.Description>
