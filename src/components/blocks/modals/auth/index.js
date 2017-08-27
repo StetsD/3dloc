@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Header, Image, Modal, Form, Checkbox} from 'semantic-ui-react';
+import {Link} from 'react-router';
 
 export default class modalLogin extends Component {
 
@@ -7,9 +8,16 @@ export default class modalLogin extends Component {
         super(props);
     }
 
+    componentDidMount(){
+		$(window).on('keyup', e => {
+            e.keyCode == 27 && this.props.enable ? this.props.toggleModal() : null;
+		});
+	}
+
     render(){
         return(
-            <Modal size="small" closeIcon={true} dimmer={this.props.enable} open={this.props.enable}>
+            <Modal size="small" open={this.props.enable}>
+				<i aria-hidden="true" className="close icon"><Link to="/" className="main-page__close-link"></Link></i>
                 <Modal.Header>Аторизация</Modal.Header>
                 <Modal.Content>
                     <Modal.Description>

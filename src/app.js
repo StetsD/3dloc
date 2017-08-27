@@ -18,7 +18,7 @@ class App extends React.Component {
 	constructor(props){
 		super(props);
 
-		bindAll(this, ['toggleMenuHandler']);
+		bindAll(this, ['toggleMenuHandler', 'toggleModalHandler']);
 	}
 
 	static propTypes = {
@@ -27,9 +27,8 @@ class App extends React.Component {
 	static path = '/';
 
 	componentDidMount(){
-
 		$(window).on('keyup', e => {
-			e.keyCode == 27 && this.props.app.enableSidebar ? this.toggleMenuHandler() : false;
+			e.keyCode == 27 && this.props.app.enableSidebar ? this.toggleMenuHandler() : null;
 		});
 	}
 
@@ -37,12 +36,17 @@ class App extends React.Component {
 		this.props.dispatch(toggleMenu(this.props.app.enableSidebar));
 	}
 
+	toggleModalHandler(){
+		this.props.history.push('/')
+	}
+
 	render(){
-		let {enableSidebar, location} = this.props.app;
+		let {enableSidebar} = this.props.app;
+
 		return (
 			<Container fluid className="prime">
-				<ModalLogin enable={location == '/login' ? true : false}/>
-				<ModalRegistration enable={location == '/registration' ? true : false} />
+				<ModalLogin toggleModal={this.toggleModalHandler} enable={window.location.pathname == '/login' ? true : false}/>
+				<ModalRegistration toggleModal={this.toggleModalHandler} enable={window.location.pathname == '/registration' ? true : false} />
 				<Header />
 				<Sidebar children={ this.props.children } enableSidebar={this.toggleMenuHandler} sidebarVisibility={enableSidebar}/>
 				<Footer/>

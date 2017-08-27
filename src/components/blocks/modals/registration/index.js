@@ -1,26 +1,25 @@
 import React, {Component} from 'react';
 import {Button, Header, Image, Modal, Form, Checkbox} from 'semantic-ui-react';
+import {Link} from 'react-router';
+import style from './style.scss';
+import bindAll from 'lodash';
 
 export default class modalLogin extends Component {
 
     constructor(props){
         super(props);
-
-        this.state = {
-            enable: false
-        }
     }
 
     componentDidMount(){
-        $('.modal-reg i.close.icon').on('click', e => {
-            console.log(this)
-        });
-    }
+		$(window).on('keyup', e => {
+            e.keyCode == 27 && this.props.enable ? this.props.toggleModal() : null;
+		});
+	}
 
     render(){
-        
         return(
-            <Modal className="modal-reg" size="small" closeIcon='close' dimmer={this.state.enable} open={this.state.enable}>
+            <Modal className="modal-reg" size="small" open={this.props.enable}>
+                <i aria-hidden="true" className="close icon"><Link to="/" className="main-page__close-link"></Link></i>
                 <Modal.Header>Регистрация</Modal.Header>
                 <Modal.Content>
                     <Modal.Description>
