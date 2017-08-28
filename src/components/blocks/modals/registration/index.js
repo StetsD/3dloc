@@ -3,6 +3,7 @@ import {Button, Header, Image, Modal, Form, Checkbox} from 'semantic-ui-react';
 import {Link} from 'react-router';
 import style from './style.scss';
 import bindAll from 'lodash';
+import FormVal from '@adwatch/form';
 
 export default class modalLogin extends Component {
 
@@ -14,6 +15,22 @@ export default class modalLogin extends Component {
 		$(window).on('keyup', e => {
             e.keyCode == 27 && this.props.enable ? this.props.toggleModal() : null;
 		});
+        let form = new FormVal({
+            $blockForm: '#form-reg',
+            setErrors: {targetParent: '.form__group', targetError: '.form__msg'},
+            filters: true,
+            ajaxBody: {
+                type: 'method',
+                url: 'action',
+                data: 'serialize'
+            },
+            callAfterValidationForm: function(){
+                if(form.getStateValidationForm){
+                    console.log('End validation');
+                }
+            }
+        }).init();
+        console.log(form)
 	}
 
     render(){
@@ -23,26 +40,31 @@ export default class modalLogin extends Component {
                 <Modal.Header>Регистрация</Modal.Header>
                 <Modal.Content>
                     <Modal.Description>
-                        <Form>
-                            <Form.Field>
+                        <Form id="form-reg" method="POST" action="/registration">
+                            <Form.Field className="form__group">
                                 <label>Имя</label>
-                                <input type="text" name="name" placeholder='Имя' />
+                                <input type="text" name="name" placeholder='Имя' data-validation="required" data-f="oC"/>
+                                <div className="form__msg"></div>
                             </Form.Field>
-                            <Form.Field>
+                            <Form.Field className="form__group">
                                 <label>Фамилия</label>
                                 <input type="text" name="lastname" placeholder='Фамилия' />
+                                <div className="form__msg"></div>
                             </Form.Field>
-                            <Form.Field>
+                            <Form.Field className="form__group">
                                 <label>Email</label>
-                                <input type="text" name="email" placeholder='Email' />
+                                <input type="text" name="email" placeholder='Email' data-validation="email"/>
+                                <div className="form__msg"></div>
                             </Form.Field>
-                            <Form.Field>
+                            <Form.Field className="form__group">
                                 <label>Пароль</label>
-                                <input type="password" name="password" placeholder='Пароль' />
+                                <input type="password" name="password" placeholder='Пароль' data-validation="required"/>
+                                <div className="form__msg"></div>
                             </Form.Field>
-                            <Form.Field>
+                            <Form.Field className="form__group">
                                 <label>Повторите пароль</label>
-                                <input type="password" name="password2" placeholder='Повторите пароль' />
+                                <input type="password" name="password2" placeholder='Повторите пароль' data-validation="required"/>
+                                <div className="form__msg"></div>
                             </Form.Field>
                             <Button type='submit'>Зарегистрироваться</Button>
                         </Form>

@@ -22,7 +22,7 @@ export default (
         { MyStudioRoutes }
 
 		<Route path="/login" component={HomePage}/>
-		<Route path="registration" component={HomePage}/>
+		<Route path="/registration" component={HomePage}/>
 
         { page404Routes }
 

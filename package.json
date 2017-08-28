@@ -35,8 +35,12 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "@adwatch/form": "^1.0.7",
+    "bcrypt": "*",
+    "bcryptjs": "^2.4.3",
     "express": "^4.15.3",
     "jquery": "^3.2.1",
+    "passport": "^0.4.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
