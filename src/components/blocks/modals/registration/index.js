@@ -15,23 +15,22 @@ export default class modalLogin extends Component {
 		$(window).on('keyup', e => {
             e.keyCode == 27 && this.props.enable ? this.props.toggleModal() : null;
 		});
-        let form = new FormVal({
-            $blockForm: '#form-reg',
-            setErrors: {targetParent: '.form__group', targetError: '.form__msg'},
-            filters: true,
-            ajaxBody: {
-                type: 'method',
-                url: 'action',
-                data: 'serialize'
-            },
-            callAfterValidationForm: function(){
-                if(form.getStateValidationForm){
-                    console.log('End validation');
-                }
-            }
-        }).init();
-        console.log(form)
 	}
+
+    componentDidUpdate(){
+        if($('#form-reg').length){
+            let form = new FormVal({
+                $blockForm: '#form-reg',
+                setErrors: {targetParent: '.form__group', targetError: '.form__msg'},
+                filters: true,
+                ajaxBody: {
+                    type: 'method',
+                    url: 'action',
+                    data: 'serialize'
+                }
+            }).init();
+        }
+    }
 
     render(){
         return(

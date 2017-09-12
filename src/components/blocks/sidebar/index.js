@@ -18,6 +18,7 @@ export default class SidebarLeftUncover extends Component {
     toggleVisibility(){
         this.props.enableSidebar();
         this.setState({ visible: !this.state.visible });
+		console.log(this.state.visible)
     }
 
     render(){
